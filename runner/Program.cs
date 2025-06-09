@@ -8,6 +8,8 @@ static int Main(string[] args)
     var connectionString =
         args.FirstOrDefault()
         ?? "Server=[::1],1433;Database=MyApp;User Id=sa;Password=YourStrong@Password;TrustServerCertificate=True;";
+    EnsureDatabase.For.SqlDatabase(connectionString);
+
 
     var upgrader =
         DeployChanges.To
