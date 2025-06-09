@@ -7,7 +7,7 @@ static int Main(string[] args)
 {
     var connectionString =
         args.FirstOrDefault()
-        ?? "Server=(localdb)\\MSSQLLocalDB;Database=MyApp;Trusted_Connection=True;";
+        ?? "Server=[::1],1433;Database=MyApp;User Id=sa;Password=YourStrong@Password;TrustServerCertificate=True;";
 
     var upgrader =
         DeployChanges.To

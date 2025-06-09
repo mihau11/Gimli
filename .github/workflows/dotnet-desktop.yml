@@ -31,7 +31,8 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
 
-
+    - name: Setup SQL server
+      run: docker compose f -f ./docker-compose.yml up -d
     - name: Restore dependencies
       run: dotnet restore ./runner
 
