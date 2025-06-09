@@ -33,4 +33,4 @@ jobs:
 
 
     - name: Run the runner
-      run: .runner/dotnet run
+      run: .runner/ dotnet run
