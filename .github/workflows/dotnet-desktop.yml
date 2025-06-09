@@ -32,5 +32,11 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
 
-    - name: Run the runner
-      run: .runner/ dotnet run
+    - name: Restore dependencies
+      run: dotnet restore ./runner
+
+    - name: Build project
+      run: dotnet build ./runner --no-restore
+
+    - name: Run project
+      run: dotnet run --project ./runner
