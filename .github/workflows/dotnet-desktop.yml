@@ -8,33 +8,30 @@ on:
 
 jobs:
 
+  # build:
+
+  #   runs-on: windows-latest  # For a list of available runner types, refer to
+  #                            # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on           # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+
+  #   steps:
+  #   - name: Checkout
+  #     uses: actions/checkout@v4
+
+  #   # Install the .NET Core workload
+  #   - name: Install .NET Core
+  #     uses: actions/setup-dotnet@v4
+  #     with:
+  #       dotnet-version: 8.0.x
+
+  #   # # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+  #   # - name: Setup MSBuild.exe
+  #   #   uses: microsoft/setup-msbuild@v2
+
   build:
-
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on           # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-
-    # Install the .NET Core workload
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-
-    # # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    # - name: Setup MSBuild.exe
-    #   uses: microsoft/setup-msbuild@v2
-
     - name: Setup SQL server
-      run: |
-          docker pull mcr.microsoft.com/windows/servercore:ltsc2022
-          docker compose up -d
+      run:  docker compose up -d
 
 
     - name: Restore dependencies
