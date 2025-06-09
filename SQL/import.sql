@@ -1,0 +1,1 @@
+﻿insert into numnum (id, num) values (1, 1), (2,11),(3,111);
