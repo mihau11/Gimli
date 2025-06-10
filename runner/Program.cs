@@ -36,3 +36,4 @@ static int Main(string[] args)
     Console.ResetColor();
     return 0;
 }
+Main(args);
